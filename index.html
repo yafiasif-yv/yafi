@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yafi Asif Portfolio</title>
+  <meta name="description" content="Premium UGC creator portfolio of Yafi Asif specializing in AI, Consumer Tech, Study Tools, and Skits. High retention, relatable storytelling, and Gen Z authentic content.">
+  
+  <style>
+    /* CSS VARIABLES & SYSTEM RESET */
+    :root {
+      --color-bg-primary: #FFFFFF;
+      --color-bg-secondary: #F5F5F7;
+      --color-bg-tertiary: #FBFBFD;
+      
+      --color-text-primary: #1D1D1F;
+      --color-text-secondary: #6E6E73;
+      --color-text-tertiary: #86868B;
+      
+      --color-accent: #0071E3;
+      --color-accent-hover: #0077ED;
+      --color-border: rgba(0, 0, 0, 0.08);
+      
+      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+      --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-hero: 0 12px 48px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
+      --shadow-pill: 0 1px 3px rgba(0, 0, 0, 0.06);
+      
+      --radius-pill: 24px;
+      --radius-card: 18px;
+      --radius-image: 12px;
+      
+      --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-card: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    
+    /* ACCESSIBILITY & FOCUS STYLES */
+    a:focus, button:focus, [tabindex]:focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    /* GLASSMORPHIC HEADER NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: saturate(190%) blur(24px);
+      -webkit-backdrop-filter: saturate(190%) blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-standard);
+    }
+    
+    .nav-container {
+      width: 100%;
+      max-width: 1024px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      transition: var(--transition-standard);
+    }
+    
+    .logo:hover {
+      opacity: 0.8;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+    
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: var(--transition-standard);
+      position: relative;
+      padding: 4px 0;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    
+    nav a:hover {
+      color: var(--color-text-primary);
+    }
+    
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    
+    /* HERO SECTION */
+    .hero-outer {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F4F4F6 45%, #D9D9DD 100%);
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      padding-top: 52px; /* nav spacing */
+    }
+    
+    .hero-container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+    }
+
+    .hero-left {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Centered hero content wrapper */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: auto;
+      text-align: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 20px;
+    }
+
+    .hero-left {
+      flex: 0 0 auto;
+      display: none; /* replaced by .hero-content */
+    }
+
+    .profile-placeholder {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: #E5E5E5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: var(--transition-card);
+    }
+
+    .hero-right {
+      flex: 0 0 auto;
+      display: none; /* replaced by .hero-content */
+    }
+    
+    .profile-placeholder:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 64px rgba(0, 0, 0, 0.16), 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .hero-right {
+      flex: 1 1 420px;
+      max-width: 660px;
+    }
+    
+    .hero-name {
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+    }
+    
+    .hero-role-1 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    
+    .hero-role-2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 24px;
+    }
+    
+    .email-link {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: var(--transition-standard);
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    
+    .email-link:hover {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
+
+    .social-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .social-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--color-text-primary);
+      text-decoration: none;
+      font-size: 0.975rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+      transition: var(--transition-standard);
+    }
+
+    .social-button:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(0, 113, 227, 0.3);
+    }
+    
+    /* SECTION BASE */
+    section {
+      position: relative;
+    }
+    
+    .section-title {
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--color-text-primary);
+      text-align: center;
+    }
+    
+    /* ABOUT + SPECIALTIES SECTION */
+    .about-specialties-section {
+      background: var(--color-bg-tertiary);
+      padding: 100px 0;
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-specialties-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 80px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .about-specialties-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 42px;
+      align-items: start;
+    }
+    
+    .about-block {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    
+    .about-block .section-title {
+      margin-bottom: 0;
+      text-align: left;
+    }
+    
+    .bio-text,
+    .specialties-text {
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      margin: 0;
+      text-align: left;
+      max-width: 100%;
+    }
+    
+    .specialties-text strong {
+      font-weight: 700;
+    }
+    
+    .about-block .social-buttons {
+      margin-top: 12px;
+    }
+    
+    .about-specialties-section .section-title {
+      font-size: 2.5rem;
+    }
+    
+    /* SOCIAL BUTTON ICONS */
+    .social-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #F2F2F6;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      font-size: 0.975rem;
+      font-weight: 600;
+      border: 1px solid rgba(29, 29, 31, 0.08);
+      transition: var(--transition-standard);
+      min-width: 160px;
+    }
+    
+    .social-button:hover {
+      background: #E8E8EC;
+      border-color: rgba(29, 29, 31, 0.14);
+    }
+    
+    .social-button svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    
+    .social-button path,
+    .social-button circle {
+      fill: currentColor;
+    }
+    
+    .pill {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--color-bg-secondary);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-pill);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      box-shadow: var(--shadow-pill);
+      transition: var(--transition-standard);
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .pill:hover {
+      background: #EBEBED;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .pill:active {
+      transform: translateY(0);
+    }
+    
+    /* PORTFOLIO GRID SECTION */
+    .portfolio-section {
+      background: var(--color-bg-secondary);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .portfolio-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .portfolio-section .section-title {
+      margin-bottom: 60px;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    
+    /* PORTFOLIO CARD */
+    .portfolio-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+      transition: var(--transition-card);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      background: #FFFFFF;
+      box-shadow: 0 20px 36px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .video-label-container {
+      padding: 20px 24px 0 24px;
+    }
+    
+    .video-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+    
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #E5E5E5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      border-radius: 12px;
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+
+    .video-thumbnail video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .video-thumbnail:hover video,
+    .video-thumbnail:focus-visible video {
+      transform: scale(1.03);
+    }
+
+    .video-thumbnail:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+
+    .video-thumbnail .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .video-thumbnail.activated .play-btn {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .video-thumbnail .play-btn svg {
+      width: 3rem;
+      height: 3rem;
+      fill: rgba(255, 255, 255, 0.95);
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+    }
+
+    .video-thumbnail::after {
+      content: 'Tap to play';
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      text-align: center;
+      color: #fff;
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+    }
+
+    .portfolio-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .video-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: #fff;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+      pointer-events: auto;
+      flex-wrap: wrap;
+    }
+
+    .video-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .video-control {
+      border: none;
+      background: #F2F2F6;
+      color: var(--color-text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-standard);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .video-control:hover {
+      background: #E8E8EC;
+    }
+
+    .video-big-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: var(--color-text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+      transition: opacity 0.25s ease, transform 0.2s ease;
+      z-index: 6;
+    }
+
+    .video-big-play.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    .video-timeline-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 240px;
+      min-width: 180px;
+    }
+
+    .video-timeline {
+      flex: 1;
+      width: 100%;
+      accent-color: var(--color-accent);
+      cursor: pointer;
+    }
+
+    .video-time {
+      min-width: 48px;
+      text-align: right;
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .portfolio-card:hover .placeholder-content {
+      transform: scale(1.06);
+    }
+
+    .placeholder-content p {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.01em;
+    }
+
+    .placeholder-content p {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.01em;
+    }
+    
+    .brand-container {
+      padding: 16px 24px 24px 24px;
+      background: transparent;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    
+    .brand-name {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    
+    /* FOOTER */
+    footer {
+      background: var(--color-bg-primary);
+      border-top: 1px solid var(--color-border);
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .footer-container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+    
+    .footer-email {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+      transition: var(--transition-standard);
+    }
+    
+    .footer-email:hover {
+      color: var(--color-accent);
+    }
+    
+    .footer-text {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    
+    /* =============================================
+       LOADING SCREEN
+    ============================================= */
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.03);
+    }
+
+    .loader-logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      opacity: 0;
+      animation: loaderLogoIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.15s forwards;
+    }
+
+    @keyframes loaderLogoIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Apple-style arc spinner */
+    .loader-ring {
+      width: 36px;
+      height: 36px;
+      position: relative;
+    }
+
+    .loader-ring svg {
+      width: 100%;
+      height: 100%;
+      animation: loaderSpin 1s linear infinite;
+      transform-origin: center;
+    }
+
+    .loader-ring circle {
+      fill: none;
+      stroke: #E5E5E5;
+      stroke-width: 3;
+    }
+
+    .loader-ring .arc {
+      fill: none;
+      stroke: var(--color-text-primary);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 60 100;
+      transition: stroke 0.3s ease;
+    }
+
+    @keyframes loaderSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Progress bar at very bottom — Apple subtle touch */
+    .loader-bar-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: transparent;
+    }
+
+    .loader-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #C8C8CC, #1D1D1F);
+      border-radius: 1px;
+      animation: loaderBarFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes loaderBarFill {
+      0%   { width: 0%; opacity: 1; }
+      80%  { width: 92%; opacity: 1; }
+      100% { width: 100%; opacity: 0; }
+    }
+
+    /* =============================================
+       SCROLL REVEAL — elements start hidden,
+       JS adds .revealed when they enter viewport
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children inside a reveal-group */
+    .reveal-group > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal-group.revealed > *:nth-child(1) { transition-delay: 0s;    opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(7) { transition-delay: 0.48s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(8) { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .reveal-group.revealed > *:nth-child(9) { transition-delay: 0.64s; opacity: 1; transform: none; }
+
+    /* =============================================
+       HERO SPECIFIC ANIMATIONS
+    ============================================= */
+    .hero-left .profile-placeholder {
+      opacity: 0;
+      transform: scale(0.92) translateY(20px);
+      transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.9s cubic-bezier(0.25, 1, 0.5, 1),
+                  box-shadow 0.4s ease;
+    }
+
+    .hero-loaded .hero-left .profile-placeholder {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition-delay: 0.3s;
+    }
+
+    .hero-name {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .hero-loaded .hero-name   { opacity: 1; transform: none; transition-delay: 0.45s; }
+
+    .hero-role-1 {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .hero-loaded .hero-role-1 { opacity: 1; transform: none; transition-delay: 0.55s; }
+
+    .hero-role-2 {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .hero-loaded .hero-role-2 { opacity: 1; transform: none; transition-delay: 0.63s; }
+
+    .email-link {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                  color 0.3s ease,
+                  text-decoration 0.3s ease;
+    }
+    .hero-loaded .email-link  { opacity: 1; transform: none; transition-delay: 0.71s; }
+
+    /* =============================================
+       HERO AMBIENT SHIMMER (subtle, Apple-style)
+    ============================================= */
+    .hero-outer::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      max-width: 700px;
+      max-height: 700px;
+      background: radial-gradient(ellipse at center,
+        rgba(255, 220, 195, 0.35) 0%,
+        rgba(232, 232, 237, 0.18) 50%,
+        transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: shimmerDrift 12s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    .hero-container { position: relative; z-index: 1; }
+
+    @keyframes shimmerDrift {
+      0%   { transform: translate(0,   0)   scale(1);    opacity: 0.7; }
+      50%  { transform: translate(-4%, 3%)  scale(1.05); opacity: 1;   }
+      100% { transform: translate(2%,  -4%) scale(0.97); opacity: 0.6; }
+    }
+
+    /* Ambient Blobs for Glassmorphism Backgrounds */
+    .ambient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+    
+    .blob-orange {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(255, 149, 0, 0.22) 0%, rgba(255, 149, 0, 0) 70%);
+      animation: blobDrift 20s ease-in-out infinite alternate;
+    }
+    
+    .blob-blue {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, rgba(0, 113, 227, 0) 70%);
+      animation: blobDrift2 24s ease-in-out infinite alternate-reverse;
+    }
+    
+    .blob-purple {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(175, 82, 222, 0.18) 0%, rgba(175, 82, 222, 0) 70%);
+      animation: blobDrift3 28s ease-in-out infinite alternate;
+    }
+
+    @keyframes blobDrift {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(12%, 8%) scale(1.1); }
+      100% { transform: translate(-8%, -12%) scale(0.95); }
+    }
+    
+    @keyframes blobDrift2 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-10%, 15%) scale(0.9); }
+      100% { transform: translate(15%, -8%) scale(1.08); }
+    }
+    
+    @keyframes blobDrift3 {
+      0% { transform: translate(0, 0) scale(0.95); }
+      50% { transform: translate(8%, -15%) scale(1.05); }
+      100% { transform: translate(-12%, 10%) scale(1); }
+    }
+
+    /* =============================================
+       SECTION HEADINGS — character-split reveal
+       (JS adds .char-split class then .show)
+    ============================================= */
+    .section-title.char-split {
+      overflow: hidden;
+    }
+
+    /* =============================================
+       NAV SLIDE-IN on load
+    ============================================= */
+    header {
+      transform: translateY(-100%);
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                  background 0.3s ease,
+                  border-color 0.3s ease;
+    }
+
+    header.nav-visible {
+      transform: translateY(0);
+    }
+
+    /* =============================================
+       CARD SHIMMER SKELETON (loading state)
+    ============================================= */
+    @keyframes skeletonPulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.55; }
+    }
+    
+    /* RESPONSIVE BREAKPOINTS */
+    
+    /* Laptop */
+    @media (max-width: 1200px) {
+      .hero-container {
+        padding: 100px 60px;
+        gap: 60px;
+      }
+      .portfolio-container {
+        padding: 0 60px;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      .about-specialties-container, .footer-container {
+        padding: 0 60px;
+      }
+    }
+    
+    /* Tablet */
+    @media (max-width: 768px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 40px;
+        gap: 40px;
+        min-height: auto;
+      }
+      .hero-left {
+        flex: 1;
+      }
+      .hero-right {
+        flex: 1;
+      }
+      .profile-placeholder {
+        width: 220px;
+        height: 220px;
+      }
+      .hero-name {
+        font-size: 3.5rem;
+      }
+      .hero-role-1 {
+        font-size: 1.5rem;
+      }
+      .hero-role-2 {
+        font-size: 1.125rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      .about-specialties-section .section-title {
+        margin-bottom: 24px;
+      }
+      .about-specialties-container, .portfolio-container, .footer-container {
+        padding: 0 40px;
+      }
+      .about-specialties-section, .portfolio-section {
+        padding: 80px 0;
+      }
+      .about-specialties-card {
+        grid-template-columns: 1fr;
+      }
+      .bio-text {
+        font-size: 1.125rem;
+      }
+    }
+    
+    /* Mobile */
+    @media (max-width: 480px) {
+      .hero-container {
+        padding: 60px 24px;
+        gap: 32px;
+      }
+      .profile-placeholder {
+        width: 200px;
+        height: 200px;
+      }
+      .hero-name {
+        font-size: 3rem;
+      }
+      .hero-role-1 {
+        font-size: 1.35rem;
+      }
+      .hero-role-2 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+      .email-link {
+        font-size: 1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      .about-specialties-section .section-title {
+        font-size: 1.85rem;
+      }
+      .about-specialties-container, .portfolio-container, .footer-container {
+        padding: 0 24px;
+      }
+      .about-specialties-section, .portfolio-section {
+        padding: 60px 0;
+      }
+      
+      .about-specialties-card {
+        grid-template-columns: 1fr;
+      }
+      
+      .pill {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .portfolio-card {
+        max-width: 100%;
+      }
+      
+      .footer-email {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- APPLE-STYLE LOADING SCREEN -->
+  <div id="loader" role="status" aria-label="Loading">
+    <p class="loader-logo">Yafi Asif</p>
+    <div class="loader-ring">
+      <svg viewBox="0 0 36 36" aria-hidden="true">
+        <circle cx="18" cy="18" r="15"/>
+        <circle class="arc" cx="18" cy="18" r="15" stroke-dashoffset="25"/>
+      </svg>
+    </div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+
+  <!-- FLOATING HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" aria-label="Yafi Asif home">Yafi Asif</a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="mailto:elumaugc@gmail.com">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-outer" id="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="profile-placeholder" aria-label="Yafi Asif profile photo">
+            <img src="media/Main Profile Picture.jpeg" alt="Main profile picture of Yafi Asif">
+          </div>
+          <h1 class="hero-name">Yafi Asif</h1>
+          <p class="hero-role-1">UGC Creator</p>
+          <p class="hero-role-2">Finance &amp; Accounting @ TMU</p>
+          <a href="mailto:elumaugc@gmail.com" class="email-link" aria-label="Email Yafi Asif at elumaugc@gmail.com">
+            elumaugc@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-specialties-section" id="about">
+      <div class="about-specialties-container">
+        <div class="about-specialties-card reveal-group" style="transition-delay:0.1s">
+          <div class="about-block">
+            <h2 class="section-title reveal">About</h2>
+            <p class="bio-text reveal" style="transition-delay:0.12s">
+              I'm a Gen Z content creator specializing in short-form, relatable content with a focus on high retention and authentic storytelling.
+            </p>
+            <p class="specialties-text reveal" style="transition-delay:0.14s">
+              I specialize in <strong>AI</strong>, <strong>Consumer Tech</strong>, <strong>Study Tools</strong>, and <strong>Skits</strong>.
+            </p>
+            <div class="social-buttons reveal" style="transition-delay:0.16s">
+              <a class="social-button" href="https://www.tiktok.com/@elumaelish5" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M23.5 9.5C22.3 8.3 21.5 6.7 21.5 5H17.5V20.5C17.5 22.4 15.9 24 14 24C12.1 24 10.5 22.4 10.5 20.5C10.5 18.6 12.1 17 14 17C14.3 17 14.6 17 14.9 17.1V13C14.6 13 14.3 13 14 13C9.9 13 6.5 16.4 6.5 20.5C6.5 24.6 9.9 28 14 28C18.1 28 21.5 24.6 21.5 20.5V13.3C23 14.4 24.8 15 26.7 15V11C25.5 11 24.4 10.4 23.5 9.5Z" fill="black"/>
+                </svg>
+                @elumaelish5
+              </a>
+              <a class="social-button" href="https://www.instagram.com/elumaeli/" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <rect x="6" y="6" width="20" height="20" rx="5" stroke="black" stroke-width="2"/>
+                  <circle cx="16" cy="16" r="5" stroke="black" stroke-width="2"/>
+                  <circle cx="22" cy="10" r="1.5" fill="black"/>
+                </svg>
+                @elumaeli
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO GRID SECTION -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="portfolio-container">
+        <h2 class="section-title reveal">Portfolio</h2>
+        <div class="portfolio-grid reveal-group">
+          
+          <!-- CARD 1 -->
+          <article class="portfolio-card" tabindex="0">
+            <div class="video-label-container">
+              <p class="video-label">Anything AI YAP</p>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-thumbnail" role="button" tabindex="0" data-src="media/Anything AI YAP (1).mp4" aria-label="Play Anything AI YAP video">
+                <video class="thumbnail-video" muted preload="metadata" playsinline src="media/Anything AI YAP (1).mp4" aria-hidden="true"></video>
+                <div class="play-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="brand-container">
+              <h3 class="brand-name">Anything AI</h3>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="portfolio-card" tabindex="0">
+            <div class="video-label-container">
+              <p class="video-label">METHODS AI YAP</p>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-thumbnail" role="button" tabindex="0" data-src="media/METHODS AI YAP (1).mp4" aria-label="Play METHODS AI YAP video">
+                <video class="thumbnail-video" muted preload="metadata" playsinline src="media/METHODS AI YAP (1).mp4" aria-hidden="true"></video>
+                <div class="play-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="brand-container">
+              <h3 class="brand-name">Methods AI</h3>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="portfolio-card" tabindex="0">
+            <div class="video-label-container">
+              <p class="video-label">PHRASLY AI YAP</p>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-thumbnail" role="button" tabindex="0" data-src="media/PHRASLY AI YAP (1).mp4" aria-label="Play PHRASLY AI YAP video">
+                <video class="thumbnail-video" muted preload="metadata" playsinline src="media/PHRASLY AI YAP (1).mp4" aria-hidden="true"></video>
+                <div class="play-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="brand-container">
+              <h3 class="brand-name">Phrasly AI</h3>
+            </div>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="portfolio-card" tabindex="0">
+            <div class="video-label-container">
+              <p class="video-label">REVID AI YAP</p>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-thumbnail" role="button" tabindex="0" data-src="media/REVID AI YAP (1).mp4" aria-label="Play REVID AI YAP video">
+                <video class="thumbnail-video" muted preload="metadata" playsinline src="media/REVID AI YAP (1).mp4" aria-hidden="true"></video>
+                <div class="play-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="brand-container">
+              <h3 class="brand-name">Revid AI</h3>
+            </div>
+          </article>
+
+          <!-- CARD 5 -->
+          <article class="portfolio-card" tabindex="0">
+            <div class="video-label-container">
+              <p class="video-label">GAUTHMATH AI SKIT</p>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-thumbnail" role="button" tabindex="0" data-src="media/GAUTHMATH AI SKIT (1).mp4" aria-label="Play GAUTHMATH AI SKIT video">
+                <video class="thumbnail-video" muted preload="metadata" playsinline src="media/GAUTHMATH AI SKIT (1).mp4" aria-hidden="true"></video>
+                <div class="play-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="brand-container">
+              <h3 class="brand-name">Gauth AI</h3>
+            </div>
+          </article>
+
+          <!-- CARD 6 -->
+          <article class="portfolio-card" tabindex="0">
+            <div class="video-label-container">
+              <p class="video-label">COMEDY SKIT</p>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-thumbnail" role="button" tabindex="0" data-src="media/COMEDY SKIT (1).mp4" aria-label="Play COMEDY SKIT video">
+                <video class="thumbnail-video" muted preload="metadata" playsinline src="media/COMEDY SKIT (1).mp4" aria-hidden="true"></video>
+                <div class="play-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="brand-container">
+              <h3 class="brand-name">Comedy</h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <a href="mailto:elumaugc@gmail.com" class="footer-email" aria-label="Email Yafi Asif">elumaugc@gmail.com</a>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ================================================
+       LOADING SCREEN
+    ================================================ */
+    const loader = document.getElementById('loader');
+    const header = document.querySelector('header');
+    const heroOuter = document.querySelector('.hero-outer');
+
+    function dismissLoader() {
+      loader.classList.add('hidden');
+      // After transition ends, fully remove from layout
+      loader.addEventListener('transitionend', () => {
+        loader.style.display = 'none';
+      }, { once: true });
+
+      // Slide nav in
+      requestAnimationFrame(() => {
+        header.classList.add('nav-visible');
+      });
+
+      // Trigger hero entrance animations
+      setTimeout(() => {
+        heroOuter.classList.add('hero-loaded');
+      }, 80);
+    }
+
+    // Dismiss after assets ready (min 0.6s for a snappy feel)
+    const minDelay = new Promise(r => setTimeout(r, 600));
+    const pageReady = new Promise(r => {
+      if (document.readyState === 'complete') r();
+      else window.addEventListener('load', r, { once: true });
+    });
+
+    Promise.all([minDelay, pageReady]).then(dismissLoader);
+
+    /* ================================================
+       SCROLL-TRIGGERED REVEAL  (IntersectionObserver)
+    ================================================ */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .reveal-group').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    /* Hero performance effects removed for a smoother experience */
+
+    function initializeVideoThumbnails() {
+      const thumbnails = document.querySelectorAll('.video-thumbnail');
+
+      const activateThumbnail = (thumb) => {
+        const video = thumb.querySelector('video');
+        if (!video) return;
+
+        thumb.classList.add('activated');
+        video.controls = true;
+        video.muted = false;
+        video.playsInline = true;
+        video.autoplay = true;
+
+        video.addEventListener('loadeddata', () => {
+          video.currentTime = 0;
+          video.pause();
+        }, { once: true });
+
+        video.play().catch(() => {
+          video.controls = true;
+        });
+        video.focus();
+      };
+
+      thumbnails.forEach((thumb) => {
+        const handleActivate = (event) => {
+          if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') return;
+          event.preventDefault();
+          activateThumbnail(thumb);
+        };
+
+        thumb.addEventListener('click', handleActivate);
+        thumb.addEventListener('keydown', handleActivate);
+      });
+    }
+
+    initializeVideoThumbnails();
+
+    // Portfolio videos are embedded directly using native HTML video controls.
+  </script>
+
+</body>
+</html>
