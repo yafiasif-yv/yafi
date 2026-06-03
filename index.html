@@ -772,6 +772,44 @@
       height: auto;
     }
 
+    .trusted-carousel-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    .trusted-carousel-scroll {
+      display: flex;
+      gap: 40px;
+      animation: horizontalScroll 18s linear infinite;
+    }
+
+    .trusted-carousel-item {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+    }
+
+    .trusted-carousel-logo {
+      max-width: 120px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @keyframes horizontalScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-66.666%);
+      }
+    }
+
     .footer-text {
       font-size: 0.875rem;
       color: var(--color-text-secondary);
@@ -1281,7 +1319,28 @@
           </a>
           <div class="trusted-by-section">
             <p class="trusted-by-label">trusted by</p>
-            <img src="media/logoblack.svg" alt="Trusted by logo" class="trusted-logo">
+            <div class="trusted-carousel-container">
+              <div class="trusted-carousel-scroll">
+                <div class="trusted-carousel-item">
+                  <img src="media/logoblack.svg" alt="Lovable" class="trusted-carousel-logo">
+                </div>
+                <div class="trusted-carousel-item">
+                  <img src="media/Screenshot 2026-06-03 160755.png" alt="Alta" class="trusted-carousel-logo">
+                </div>
+                <div class="trusted-carousel-item">
+                  <img src="media/logoblack.svg" alt="Lovable" class="trusted-carousel-logo">
+                </div>
+                <div class="trusted-carousel-item">
+                  <img src="media/Screenshot 2026-06-03 160755.png" alt="Alta" class="trusted-carousel-logo">
+                </div>
+                <div class="trusted-carousel-item">
+                  <img src="media/logoblack.svg" alt="Lovable" class="trusted-carousel-logo">
+                </div>
+                <div class="trusted-carousel-item">
+                  <img src="media/Screenshot 2026-06-03 160755.png" alt="Alta" class="trusted-carousel-logo">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
